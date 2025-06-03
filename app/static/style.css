@@ -1,0 +1,173 @@
+/* General Body Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa; /* Default background for other pages */
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* === BACKGROUND FOR SEARCH PAGE (home.html) === */
+body.search-full-bg {
+    background-image: url('images/ticket_bg.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* === BACKGROUND FOR RESULTS PAGE (results.html) === */
+body.results-full-bg {
+    background-image: url('images/scorsese_bg.jpg'); /* This was the one for results */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+
+/* Navbar styling */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,.04);
+}
+
+/* Darker, semi-transparent navbar for pages with full backgrounds */
+body.search-full-bg .navbar.navbar-dark,
+body.results-full-bg .navbar.navbar-dark { /* Applied to both */
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1030;
+}
+body.search-full-bg .navbar.navbar-dark .navbar-brand,
+body.search-full-bg .navbar.navbar-dark .nav-link,
+body.results-full-bg .navbar.navbar-dark .navbar-brand,
+body.results-full-bg .navbar.navbar-dark .nav-link { /* Applied to both */
+    color: #f8f9fa;
+}
+body.search-full-bg .navbar.navbar-dark .navbar-brand:hover,
+body.search-full-bg .navbar.navbar-dark .nav-link:hover,
+body.results-full-bg .navbar.navbar-dark .navbar-brand:hover,
+body.results-full-bg .navbar.navbar-dark .nav-link:hover { /* Applied to both */
+    color: #ccc;
+}
+
+
+/* === STYLING FOR SEARCH PAGE CONTENT (home.html) === */
+.search-form-overlay-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    padding-top: 70px; /* Space for fixed navbar */
+    padding-bottom: 20px;
+}
+.search-form-card {
+    background-color: rgba(255, 255, 255, 0.93);
+    backdrop-filter: blur(3px);
+    border-radius: 0.75rem;
+    padding: 10px 20px 20px 20px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+}
+.search-form-card .card-header {
+    border-bottom: none;
+    background-color: #007bff !important;
+    border-top-left-radius: 0.7rem;
+    border-top-right-radius: 0.7rem;
+}
+.search-form-card .card-header h2 {
+    color: white;
+    font-size: 1.6rem;
+}
+.search-form-card .form-group label {
+    color: #333;
+}
+.search-form-card .genre-checkbox-group {
+    background-color: #fff;
+}
+.search-form-overlay-container > .container.mt-5 {
+    margin-top: 0 !important;
+}
+
+
+/* === STYLING FOR RESULTS PAGE CONTENT (results.html) === */
+.results-page-header-area {
+    color: #fff;
+    padding-top: 70px; /* Space for fixed navbar */
+}
+.results-page-header-area h2 {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+.results-page-header-area .btn-outline-light {
+    border-width: 2px;
+    font-weight: 500;
+}
+.results-page-header-area .btn-outline-light:hover {
+    background-color: rgba(255,255,255,0.9);
+    color: #333;
+}
+.results-content-overlay {
+    background-color: rgba(255, 255, 255, 0.92);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.movie-card { /* This applies to cards on results page, inside the overlay */
+    transition: transform .2s ease-in-out, box-shadow .2s ease-in-out;
+    border-radius: 0.5rem;
+    border: 1px solid #e0e0e0;
+    background-color: #fff;
+}
+.movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important;
+}
+.movie-card .card-title {
+    font-weight: 500;
+    color: #0056b3;
+}
+.movie-card .card-title small {
+    font-weight: 400;
+    color: #555;
+}
+.movie-card .card-text {
+    color: #333;
+    font-size: 0.9rem;
+}
+.movie-card .card-text small {
+    color: #454545;
+}
+.movie-card .badge {
+    font-size: 0.75rem;
+    padding: 0.3em 0.6em;
+}
+.movie-card .badge-info {
+    background-color: #17a2b8;
+}
+.results-content-overlay .alert-light {
+    background-color: #f0f0f0;
+    border-color: #dedede;
+    color: #333;
+}
+.results-content-overlay .alert-light .alert-link {
+    color: #0056b3;
+}
+
+
+/* General .container for non-full-bg pages or content within overlays */
+.container {
+    max-width: 1140px;
+}

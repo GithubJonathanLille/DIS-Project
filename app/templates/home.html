@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block body_class %}search-full-bg{% endblock %} {# Sets the class for the <body> tag #}
+
+{% block content_wrapper %} {# Override the default content wrapper to control structure #}
+    {# This div is for the form container, it will sit on top of the body background #}
+    <div class="search-form-overlay-container">
+        <div class="container mt-5"> {# Bootstrap container for centering and max-width #}
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8">
+                    <div class="card shadow-sm search-form-card"> {# Added search-form-card class for specific styling #}
+                        <div class="card-header bg-primary text-white">
+                            <h2 class="mb-0">Find Something to Watch</h2>
+                        </div>
+                        <div class="card-body">
+                            <form method="POST" action="">
+                                {{ form.hidden_tag() }}
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        {{ form.title.label(class="font-weight-bold") }}
+                                        {{ form.title(class="form-control form-control-sm", placeholder="e.g., The Matrix") }}
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        {{ form.actor.label(class="font-weight-bold") }}
+                                        {{ form.actor(class="form-control form-control-sm", placeholder="e.g., Keanu Reeves") }}
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    {{ form.genres.label(class="font-weight-bold") }}
+                                    <div class="genre-checkbox-group border p-2 rounded">
+                                        {% for subfield in form.genres %}
+                                            <div class="form-check form-check-inline">
+                                                {{ subfield(class="form-check-input") }}
+                                                {{ subfield.label(class="form-check-label") }}
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+
+                                <fieldset class="mt-3">
+                                    <legend class="h5 font-weight-bold">Numeric Filters</legend>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-3">
+                                            {{ form.min_runtime.label }}
+                                            {{ form.min_runtime(class="form-control form-control-sm", placeholder="Mins") }}
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            {{ form.max_runtime.label }}
+                                            {{ form.max_runtime(class="form-control form-control-sm", placeholder="Mins") }}
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            {{ form.min_release_year.label }}
+                                            {{ form.min_release_year(class="form-control form-control-sm", placeholder="Year") }}
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            {{ form.max_release_year.label }}
+                                            {{ form.max_release_year(class="form-control form-control-sm", placeholder="Year") }}
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-3">
+                                            {{ form.min_rank.label }}
+                                            {{ form.min_rank(class="form-control form-control-sm", placeholder="Rank") }}
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            {{ form.max_rank.label }}
+                                            {{ form.max_rank(class="form-control form-control-sm", placeholder="Rank") }}
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                                <div class="form-group mt-4 text-center">
+                                    {{ form.submit(class="btn btn-primary btn-lg px-5") }}
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
